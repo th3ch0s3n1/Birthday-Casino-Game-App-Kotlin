@@ -64,6 +64,7 @@ The **Birthday Casino Game App** is an interactive Android application developed
  ├── res/
  │   ├── drawable/           # Graphics and icons
  │   ├── raw/                # Sound effects
+ │   ├── values/             # App localization (en, cs, etc.)
 ```
 
 ### 🚀 Key Technologies
