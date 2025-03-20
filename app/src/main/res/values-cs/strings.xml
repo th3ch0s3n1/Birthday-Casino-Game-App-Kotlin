@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Birthday Casino</string>
+    <string name="greeting">Ahoj %1$s!</string>
+    <string name="enter_name">Zadej své jméno</string>
+
+    <string name="settings">Nastavení</string>
+
+    <string name="max_prize">Maximalní výhra</string>
+    <string name="starting_credits">Počáteční kredity</string>
+    <string name="credits">Kredity</string>
+    <string name="total_prize">Celková výhra</string>
+
+    <string name="message_continue">Pokračovat</string>
+
+    <string name="name_empty_error">Jméno nesmí být prázdné</string>
+
+</resources>
