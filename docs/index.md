@@ -1,14 +1,14 @@
 # Birthday Casino Game App (Kotlin) - Documentation
 
 ## Table of Contents
-1. [Overview](#overview)
-2. [Installation](#installation)
-3. [How It Works](#how-it-works)
-4. [Game Mechanics](#game-mechanics)
-5. [Development Guide](#development-guide)
-6. [API & Data Structures](#api--data-structures)
-7. [Contributing](#contributing)
-8. [License](#license)
+1. [Overview](#1️⃣-overview)
+2. [Installation](#2️⃣-installation)
+3. [How It Works](#3️⃣-how-it-works)
+4. [Game Mechanics](#4️⃣-game-mechanics)
+5. [Development Guide](#5️⃣-development-guide)
+6. [API & Data Structures](#6️⃣-api--data-structures)
+7. [Contributing](#7️⃣-contributing)
+8. [License](#8️⃣-license)
 
 ---
 
