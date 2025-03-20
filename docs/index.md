@@ -77,9 +77,10 @@ The **Birthday Casino Game App** is an interactive Android application developed
 ### 🎨 WheelSegment Model
 ```kotlin
 data class WheelSegment(
-    val label: String,
-    val color: Color,
-    val soundResId: Int
+   val label: String,
+   val color: Color,
+   @RawRes val soundResId: Int,
+   val prize: Int
 )
 ```
 ### 🎯 Prize Model
