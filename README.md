@@ -19,7 +19,7 @@ An engaging **birthday celebration app** built in **Kotlin for Android**, featur
 
 | <img alt="Game list" src="docs/assets/game_list.png" title="Game list" width="300"/> | <img alt="Shop" src="docs/assets/shop.png" title="Shop" width="300"/> | <img alt="Winning prizes" src="docs/assets/winning_prizes.png" title="Winning prizes" width="300"/> |
 |:------------------------------------------------------------------------------------:|:---------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------:|
-|                                     *Game list*                                      |                                *Shop*                                 |                                          *Winning prizes*                                           |
+|                                     *Game list*                                      |                              *Gift Shop*                              |                                          *Winning prizes*                                           |
 
 | <img alt="Wheel of Fortune" src="docs/assets/wheel_of_fortune.png" title="Wheel of Fortune" width="300"/> |
 |:---------------------------------------------------------------------------------------------------------:|

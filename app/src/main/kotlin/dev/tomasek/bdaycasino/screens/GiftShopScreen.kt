@@ -29,7 +29,7 @@ import androidx.compose.ui.Alignment
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ShopScreen(viewModel: MainViewModel, navController: NavHostController) {
+fun GiftShopScreen(viewModel: MainViewModel, navController: NavHostController) {
     val setting by viewModel.setting.observeAsState()
     val prizes = setting?.prizes ?: emptyList()
     val user by viewModel.user.observeAsState()

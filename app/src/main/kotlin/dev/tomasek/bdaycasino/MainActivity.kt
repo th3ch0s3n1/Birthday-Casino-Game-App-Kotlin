@@ -12,7 +12,7 @@ import dev.tomasek.bdaycasino.screens.LuckyWheelScreen
 import dev.tomasek.bdaycasino.screens.MainScreen
 import dev.tomasek.bdaycasino.screens.RouletteScreen
 import dev.tomasek.bdaycasino.screens.SettingsScreen
-import dev.tomasek.bdaycasino.screens.ShopScreen
+import dev.tomasek.bdaycasino.screens.GiftShopScreen
 import dev.tomasek.bdaycasino.screens.SlotMachineScreen
 import dev.tomasek.bdaycasino.screens.WelcomeScreen
 import dev.tomasek.bdaycasino.ui.theme.BirthdayCasinoTheme
@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
 
                     composable("add_prize_screen") { AddPrizeScreen(viewModel, navController) }
                     composable("settings_screen") { SettingsScreen(viewModel, navController) }
-                    composable("shop_screen") { ShopScreen(viewModel, navController) }
+                    composable("shop_screen") { GiftShopScreen(viewModel, navController) }
                 }
             }
         }
