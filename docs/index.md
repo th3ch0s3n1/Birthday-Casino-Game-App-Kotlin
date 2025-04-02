@@ -88,8 +88,18 @@ data class WheelSegment(
 ```kotlin
 data class Prize(
     val name: String,
-    val description: String,
+    var description: String,
+    val minimumCreditsToUnlock: Int,
     val contributor: String
+)
+```
+### 👤 User Model
+```kotlin
+data class User(
+var name: String    = "",
+var credits: Int    = 0,
+var prize: Int      = 0,
+var inventory: MutableList<Prize>
 )
 ```
 
