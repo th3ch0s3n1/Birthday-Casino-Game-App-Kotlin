@@ -1,5 +1,6 @@
 package dev.tomasek.bdaycasino.screens
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -11,9 +12,11 @@ import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
@@ -33,22 +36,38 @@ import dev.tomasek.bdaycasino.viewmodel.MainViewModel
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SlotMachineScreen(viewModel: MainViewModel, navController: NavHostController) {
-    val user: State<User?> = viewModel.user.observeAsState()
-
     Scaffold(
-        topBar =  {
+        containerColor = MaterialTheme.colorScheme.background,
+        topBar = {
             TopAppBar(
-                title = { Text(text = "Lucky Wheel Game") },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimary,
+                ),
+                title = { Text(text = "Slot Machine") },
+                actions = {
+                    IconButton(onClick = { navController.navigate("settings_screen") }) {
+                        Icon(
+                            Icons.Outlined.Settings,
+                            contentDescription = stringResource(id = R.string.settings),
+                            tint = MaterialTheme.colorScheme.onPrimary
+                        )
+                    }
+                }
             )
         },
-        modifier = Modifier.fillMaxSize()) { innerPadding ->
-        Column(
-            modifier = Modifier.padding(innerPadding).fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            // Add your lucky wheel game UI here
-            Spacer(modifier = Modifier.height(16.dp))
+        content = { innerPadding ->
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding)
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Spacer(modifier = Modifier.height(16.dp))
+
+            }
         }
-    }
+    )
 }

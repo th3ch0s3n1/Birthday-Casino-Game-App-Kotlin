@@ -1,6 +1,8 @@
 package dev.tomasek.bdaycasino.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -26,20 +28,27 @@ import androidx.navigation.NavHostController
 import dev.tomasek.bdaycasino.R
 import dev.tomasek.bdaycasino.components.NumberInputField
 import dev.tomasek.bdaycasino.components.UserRegister
+import dev.tomasek.bdaycasino.ui.theme.BirthdayCasinoTheme
 import dev.tomasek.bdaycasino.viewmodel.MainViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WelcomeScreen(viewModel: MainViewModel, navController: NavHostController) {
     Scaffold(
+        containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             TopAppBar(
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimary,
+                ),
                 title = { Text(text = stringResource(id = R.string.app_name)) },
                 actions = {
                     IconButton(onClick = { navController.navigate("settings_screen") }) {
                         Icon(
                             Icons.Outlined.Settings,
-                            contentDescription = stringResource(id = R.string.settings)
+                            contentDescription = stringResource(id = R.string.settings),
+                            tint = MaterialTheme.colorScheme.onPrimary
                         )
                     }
                 }
@@ -54,10 +63,10 @@ fun WelcomeScreen(viewModel: MainViewModel, navController: NavHostController) {
                 verticalArrangement = Arrangement.spacedBy(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_casino),
                     contentDescription = null,
-                    contentScale = ContentScale.Crop,
+                    tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier
                         .size(120.dp)
                         .clip(RoundedCornerShape(8.dp))
@@ -74,12 +83,15 @@ fun WelcomeScreen(viewModel: MainViewModel, navController: NavHostController) {
                 Text(
                     text = stringResource(id = R.string.setup_message),
                     style = MaterialTheme.typography.bodyLarge,
-                    color = Color.Gray
+                    color = MaterialTheme.colorScheme.onBackground
                 )
 
                 Button(
                     onClick = { navController.navigate("add_prize_screen") },
-                    colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.onPrimary
+                    ),
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(text = stringResource(id = R.string.add_prize))

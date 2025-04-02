@@ -1,5 +1,6 @@
 package dev.tomasek.bdaycasino.screens
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -10,6 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -22,14 +24,20 @@ import dev.tomasek.bdaycasino.viewmodel.MainViewModel
 @Composable
 fun AddPrizeScreen(viewModel: MainViewModel, navController: NavHostController) {
     Scaffold(
+        containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             TopAppBar(
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimary,
+                ),
                 title = { Text(text = stringResource(id = R.string.app_name)) },
                 actions = {
                     IconButton(onClick = { navController.navigate("settings_screen") }) {
                         Icon(
                             Icons.Outlined.Settings,
-                            contentDescription = stringResource(id = R.string.settings)
+                            contentDescription = stringResource(id = R.string.settings),
+                            tint = MaterialTheme.colorScheme.onPrimary
                         )
                     }
                 }
@@ -69,7 +77,12 @@ fun PrizeInput(viewModel: MainViewModel, modifier: Modifier = Modifier) {
                 errorMessage = if (it.isEmpty()) "Please enter a valid name" else null
             },
             label = { Text("Name") },
-            isError = errorMessage != null
+            isError = errorMessage != null,
+            colors = TextFieldDefaults.colors(
+                unfocusedTextColor = MaterialTheme.colorScheme.onBackground,
+                focusedIndicatorColor = MaterialTheme.colorScheme.primary,
+                unfocusedIndicatorColor = MaterialTheme.colorScheme.onSurface
+            )
         )
         errorMessage?.let { Text(text = it, color = MaterialTheme.colorScheme.error) }
 
@@ -81,7 +94,12 @@ fun PrizeInput(viewModel: MainViewModel, modifier: Modifier = Modifier) {
                 errorMessage = if (it.isEmpty()) "Please enter a valid description" else null
             },
             label = { Text("Description") },
-            isError = errorMessage != null
+            isError = errorMessage != null,
+            colors = TextFieldDefaults.colors(
+                unfocusedTextColor = MaterialTheme.colorScheme.onBackground,
+                focusedIndicatorColor = MaterialTheme.colorScheme.primary,
+                unfocusedIndicatorColor = MaterialTheme.colorScheme.onSurface
+            )
         )
         errorMessage?.let { Text(text = it, color = MaterialTheme.colorScheme.error) }
 
@@ -93,7 +111,12 @@ fun PrizeInput(viewModel: MainViewModel, modifier: Modifier = Modifier) {
                 errorMessage = if (it.isEmpty()) "Please enter a valid contributor" else null
             },
             label = { Text("Contributor") },
-            isError = errorMessage != null
+            isError = errorMessage != null,
+            colors = TextFieldDefaults.colors(
+                unfocusedTextColor = MaterialTheme.colorScheme.onBackground,
+                focusedIndicatorColor = MaterialTheme.colorScheme.primary,
+                unfocusedIndicatorColor = MaterialTheme.colorScheme.onSurface
+            )
         )
         errorMessage?.let { Text(text = it, color = MaterialTheme.colorScheme.error) }
 
@@ -117,7 +140,11 @@ fun PrizeInput(viewModel: MainViewModel, modifier: Modifier = Modifier) {
                     errorMessage = "Please fill in all fields with valid data"
                 }
             },
-            modifier = Modifier.padding(top = 8.dp)
+            modifier = Modifier.padding(top = 8.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.primary,
+                contentColor = MaterialTheme.colorScheme.onPrimary
+            )
         ) {
             Text(text = "Add Prize")
         }
@@ -144,15 +171,20 @@ fun PrizeList(viewModel: MainViewModel, modifier: Modifier = Modifier) {
 @Composable
 fun PrizeItem(prize: Prize, viewModel: MainViewModel, modifier: Modifier = Modifier) {
     Column(modifier = modifier.padding(8.dp)) {
-        Text(text = "Name: ${prize.name}", style = MaterialTheme.typography.bodyLarge)
-        Text(text = "Description: ${prize.description}", style = MaterialTheme.typography.bodyMedium)
-        Text(text = "Minimum Credits: ${prize.minimumCreditsToUnlock}", style = MaterialTheme.typography.bodyMedium)
-        Text(text = "Contributor: ${prize.contributor}", style = MaterialTheme.typography.bodyMedium)
+        Text(text = "Name: ${prize.name}", style = MaterialTheme.typography.bodyLarge.copy(color = MaterialTheme.colorScheme.onBackground))
+        Text(text = "Description: ${prize.description}", style = MaterialTheme.typography.bodyMedium.copy(color = MaterialTheme.colorScheme.onBackground))
+        Text(text = "Minimum Credits: ${prize.minimumCreditsToUnlock}", style = MaterialTheme.typography.bodyMedium.copy(color = MaterialTheme.colorScheme.onBackground))
+        Text(text = "Contributor: ${prize.contributor}", style = MaterialTheme.typography.bodyMedium.copy(color = MaterialTheme.colorScheme.onBackground))
         Button(
             onClick = { viewModel.deletePrize(prize) },
-            modifier = Modifier.padding(top = 8.dp)
+            modifier = Modifier.padding(top = 8.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.primary,
+                contentColor = MaterialTheme.colorScheme.onPrimary
+            )
         ) {
             Text(text = "Delete")
         }
     }
 }
+
