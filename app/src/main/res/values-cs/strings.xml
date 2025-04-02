@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Birthday Casino</string>
     <string name="greeting">Ahoj %1$s!</string>
-    <string name="enter_name">Zadej své jméno</string>
+    <string name="enter_name">Zadejte jméno oslavence</string>
 
     <string name="settings">Nastavení</string>
 
@@ -9,6 +9,11 @@
     <string name="starting_credits">Počáteční kredity</string>
     <string name="credits">Kredity</string>
     <string name="total_prize">Celková výhra</string>
+    <string name="add_prize">Přidat výherní cenu</string>
+    <string name="welcome_message">Vítejte v Birthday Casino!</string>
+    <string name="setup_message">Rodina nebo přátelé zde nastaví hru pro oslavence.</string>
+
+    <string name="shop">Obchod</string>
 
     <string name="message_continue">Pokračovat</string>
 

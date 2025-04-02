@@ -16,7 +16,6 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.rotate
-import androidx.compose.ui.graphics.drawscope.scale
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -36,7 +35,7 @@ fun SpinningWheel(segments: List<WheelSegment>, viewModel: MainViewModel, modifi
     var soundDuration by remember { mutableStateOf(0) }
     var canSpin by remember { mutableStateOf(true) }
     var targetRotation by remember { mutableStateOf(0f) }
-    var winningLabel by remember { mutableStateOf("") }
+    var winningLabel by remember { mutableStateOf("0") }
     var mediaPlayer: MediaPlayer? by remember { mutableStateOf(null) }
 
     val animatedRotation by animateFloatAsState(
@@ -97,7 +96,10 @@ fun SpinningWheel(segments: List<WheelSegment>, viewModel: MainViewModel, modifi
     }
     Text(text = "${stringResource(id = R.string.credits)}: ${user.value?.credits.toString()}")
     Text(text = "${stringResource(id = R.string.total_prize)}: ${user.value?.prize.toString()}")
-    Text(text = "${winningLabel} CZK")
+    Spacer(
+        modifier = Modifier.height(16.dp)
+    )
+    Text(text = "$winningLabel ${stringResource(id = R.string.credits)}")
 }
 
 fun createSoundEffect(context: Context, soundResId: Int): MediaPlayer {

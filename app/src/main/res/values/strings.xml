@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Birthday Casino</string>
     <string name="greeting">Hello %1$s!</string>
-    <string name="enter_name">Enter your name</string>
+    <string name="enter_name">Enter birthday person\'s name</string>
 
     <string name="settings">Settings</string>
 
@@ -9,7 +9,11 @@
     <string name="starting_credits">Starting credits</string>
     <string name="credits">Credits</string>
     <string name="total_prize">Total prize</string>
+    <string name="add_prize">Add winning prize</string>
+    <string name="welcome_message">Welcome to Birthday Casino!</string>
+    <string name="setup_message">Family or friends will set up the game for the birthday person.</string>
 
+    <string name="shop">Shop</string>
 
     <string name="message_continue">Continue</string>
 
