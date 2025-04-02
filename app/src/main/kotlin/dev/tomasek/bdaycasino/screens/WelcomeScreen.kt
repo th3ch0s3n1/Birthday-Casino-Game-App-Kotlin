@@ -1,8 +1,5 @@
 package dev.tomasek.bdaycasino.screens
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -17,8 +14,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -28,7 +23,6 @@ import androidx.navigation.NavHostController
 import dev.tomasek.bdaycasino.R
 import dev.tomasek.bdaycasino.components.NumberInputField
 import dev.tomasek.bdaycasino.components.UserRegister
-import dev.tomasek.bdaycasino.ui.theme.BirthdayCasinoTheme
 import dev.tomasek.bdaycasino.viewmodel.MainViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
