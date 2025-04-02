@@ -13,22 +13,21 @@ An engaging **birthday celebration app** built in **Kotlin for Android**, featur
 
 
 ## 📸 Screenshots
-
 | !\[Birthday casino\](docs/assets/birthday_casino.png "Starting screen") |
-|:--:|
-| *Starting screen* |
+|:-----------------------------------------------------------------------:|
+|                            *Starting screen*                            |
 
 | !\[Game list\](docs/assets/game_list.png "Game list") |
-|:--:|
-| *Game list* |
+|:-----------------------------------------------------:|
+|                      *Game list*                      |
 
 | !\[Shop\](docs/assets/shop.png "Shop") |
-|:--:|
-| *Shop* |
+|:--------------------------------------:|
+|                 *Shop*                 |
 
 | !\[Winning prizes\](docs/assets/winning_prizes.png "Winning prizes") |
-|:--:|
-| *Winning prizes* |
+|:--------------------------------------------------------------------:|
+|                           *Winning prizes*                           |
 
 ## 🚀 Getting Started
 
