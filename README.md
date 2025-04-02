@@ -21,7 +21,7 @@ An engaging **birthday celebration app** built in **Kotlin for Android**, featur
 |:------------------------------------------------------------------------------------:|:---------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------:|
 |                                     *Game list*                                      |                                *Shop*                                 |                                          *Winning prizes*                                           |
 
-| <img alt="Wheel of Fortune" src="docs/assets/wheel_of_fortune.png" title="Wheel of Fortune" width="500"/> |
+| <img alt="Wheel of Fortune" src="docs/assets/wheel_of_fortune.png" title="Wheel of Fortune" width="300"/> |
 |:---------------------------------------------------------------------------------------------------------:|
 |                                            *Wheel of Fortune*                                             |
 
