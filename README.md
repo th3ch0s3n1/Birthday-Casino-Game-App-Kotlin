@@ -17,17 +17,9 @@ An engaging **birthday celebration app** built in **Kotlin for Android**, featur
 |:------------------------------------------------------------------------------------------------------:|
 |                                           *Starting screen*                                            |
 
-| <img alt="Game list" src="docs/assets/game_list.png" title="Game list" width="500"/> |
-|:------------------------------------------------------------------------------------:|
-|                                     *Game list*                                      |
-
-| <img alt="Shop" src="docs/assets/shop.png" title="Shop" width="500"/> |
-|:---------------------------------------------------------------------:|
-|                                *Shop*                                 |
-
-| <img alt="Winning prizes" src="docs/assets/winning_prizes.png" title="Winning prizes" width="500"/> |
-|:---------------------------------------------------------------------------------------------------:|
-|                                          *Winning prizes*                                           |
+| <img alt="Game list" src="docs/assets/game_list.png" title="Game list" width="300"/> | <img alt="Shop" src="docs/assets/shop.png" title="Shop" width="300"/> | <img alt="Winning prizes" src="docs/assets/winning_prizes.png" title="Winning prizes" width="300"/> |
+|:------------------------------------------------------------------------------------:|:---------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------:|
+|                                     *Game list*                                      |                                *Shop*                                 |                                          *Winning prizes*                                           |
 
 ## 🚀 Getting Started
 
