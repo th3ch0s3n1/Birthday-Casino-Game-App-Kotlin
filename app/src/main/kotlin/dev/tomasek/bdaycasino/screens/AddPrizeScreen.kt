@@ -3,7 +3,10 @@ package dev.tomasek.bdaycasino.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -12,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
 import androidx.navigation.NavHostController
 import dev.tomasek.bdaycasino.R
 import dev.tomasek.bdaycasino.components.NumberInputField
@@ -21,6 +25,8 @@ import dev.tomasek.bdaycasino.viewmodel.MainViewModel
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddPrizeScreen(viewModel: MainViewModel, navController: NavHostController) {
+    var showDialog by remember { mutableStateOf(false) }
+
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
@@ -29,17 +35,17 @@ fun AddPrizeScreen(viewModel: MainViewModel, navController: NavHostController) {
                     containerColor = MaterialTheme.colorScheme.primary,
                     titleContentColor = MaterialTheme.colorScheme.onPrimary,
                 ),
-                title = { Text(text = stringResource(id = R.string.app_name)) },
-                actions = {
-                    IconButton(onClick = { navController.navigate("settings_screen") }) {
-                        Icon(
-                            Icons.Outlined.Settings,
-                            contentDescription = stringResource(id = R.string.settings),
-                            tint = MaterialTheme.colorScheme.onPrimary
-                        )
-                    }
-                }
+                title = { Text(text = stringResource(id = R.string.winning_prizes)) }
             )
+        },
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = { showDialog = true },
+                containerColor = MaterialTheme.colorScheme.primary,
+                contentColor = MaterialTheme.colorScheme.onPrimary
+            ) {
+                Icon(Icons.Default.Add, contentDescription = stringResource(id = R.string.add_prize))
+            }
         },
         content = { innerPadding ->
             Column(
@@ -50,12 +56,39 @@ fun AddPrizeScreen(viewModel: MainViewModel, navController: NavHostController) {
                 verticalArrangement = Arrangement.spacedBy(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                PrizeInput(viewModel)
-                Spacer(modifier = Modifier.height(16.dp))
                 PrizeList(viewModel)
             }
         }
     )
+
+    if (showDialog) {
+        Dialog(onDismissRequest = { showDialog = false }) {
+            Surface(
+                shape = RoundedCornerShape(8.dp),
+                color = MaterialTheme.colorScheme.surface,
+                modifier = Modifier.padding(16.dp)
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.End
+                    ) {
+                        IconButton(onClick = { showDialog = false }) {
+                            Icon(
+                                imageVector = Icons.Default.Close,
+                                contentDescription = "Close",
+                                tint = MaterialTheme.colorScheme.onSurface
+                            )
+                        }
+                    }
+                    PrizeInput(viewModel)
+                }
+            }
+        }
+    }
 }
 
 @Composable
@@ -129,6 +162,8 @@ fun PrizeInput(viewModel: MainViewModel, modifier: Modifier = Modifier) {
         )
         errorMessage?.let { Text(text = it, color = MaterialTheme.colorScheme.error) }
 
+        Spacer(modifier = Modifier.height(16.dp))
+
         Button(
             onClick = {
                 val credits = minimumCreditsToUnlock.toIntOrNull()
@@ -155,7 +190,7 @@ fun PrizeList(viewModel: MainViewModel, modifier: Modifier = Modifier) {
     val prizes = setting?.prizes ?: emptyList()
 
     LazyVerticalGrid(
-        columns = GridCells.Fixed(2),
+        columns = GridCells.Fixed(1),
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(16.dp)
@@ -168,20 +203,49 @@ fun PrizeList(viewModel: MainViewModel, modifier: Modifier = Modifier) {
 
 @Composable
 fun PrizeItem(prize: Prize, viewModel: MainViewModel, modifier: Modifier = Modifier) {
-    Column(modifier = modifier.padding(8.dp)) {
-        Text(text = "Name: ${prize.name}", style = MaterialTheme.typography.bodyLarge.copy(color = MaterialTheme.colorScheme.onBackground))
-        Text(text = "Description: ${prize.description}", style = MaterialTheme.typography.bodyMedium.copy(color = MaterialTheme.colorScheme.onBackground))
-        Text(text = "Minimum Credits: ${prize.minimumCreditsToUnlock}", style = MaterialTheme.typography.bodyMedium.copy(color = MaterialTheme.colorScheme.onBackground))
-        Text(text = "Contributor: ${prize.contributor}", style = MaterialTheme.typography.bodyMedium.copy(color = MaterialTheme.colorScheme.onBackground))
-        Button(
-            onClick = { viewModel.deletePrize(prize) },
-            modifier = Modifier.padding(top = 8.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.primary,
-                contentColor = MaterialTheme.colorScheme.onPrimary
-            )
+    Card(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(8.dp),
+        elevation = CardDefaults.cardElevation(4.dp),
+        shape = RoundedCornerShape(8.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.End,
+            verticalAlignment = Alignment.Top
         ) {
-            Text(text = "Delete")
+            IconButton(onClick = { viewModel.deletePrize(prize) }) {
+                Icon(
+                    imageVector = Icons.Default.Close,
+                    contentDescription = "Close",
+                    tint = MaterialTheme.colorScheme.onSurface
+                )
+            }
+        }
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 0.dp, start = 16.dp, end = 16.dp, bottom = 16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Text(
+                text = prize.name,
+                style = MaterialTheme.typography.headlineSmall.copy(color = MaterialTheme.colorScheme.onSurface)
+            )
+            Text(
+                text = prize.description,
+                style = MaterialTheme.typography.bodyMedium.copy(color = MaterialTheme.colorScheme.onSurface)
+            )
+            Text(
+                text = "Minimum Credits: ${prize.minimumCreditsToUnlock}",
+                style = MaterialTheme.typography.bodySmall.copy(color = MaterialTheme.colorScheme.onSurface)
+            )
+            Text(
+                text = "Contributor: ${prize.contributor}",
+                style = MaterialTheme.typography.bodySmall.copy(color = MaterialTheme.colorScheme.onSurface)
+            )
         }
     }
 }

@@ -10,6 +10,7 @@
     <string name="credits">Credits</string>
     <string name="total_prize">Total prize</string>
     <string name="available_prizes">Available prizes</string>
+    <string name="winning_prizes">Winning prizes</string>
     <string name="add_prize">Add winning prize</string>
     <string name="welcome_message">Welcome to Birthday Casino!</string>
     <string name="setup_message">Family or friends will set up the game for the birthday person.</string>
