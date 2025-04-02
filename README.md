@@ -13,7 +13,7 @@ An engaging **birthday celebration app** built in **Kotlin for Android**, featur
 
 
 ## 📸 Screenshots
-*(Coming soon!)*
+![Birthday casino](docs/assets/birthday_casino.png "Starting screen")
 
 
 ## 🚀 Getting Started
